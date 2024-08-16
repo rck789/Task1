@@ -8,57 +8,16 @@ html {
   overflow-x: hidden;
 }
 
+/* Root variables for themes */
 :root {
+  --background-color: aliceblue;
+  --text-color: black;
+  --primary-color: rgb(47, 79, 224);
+  --secondary-color: rgba(0, 0, 0, 0.1);
+  --card-background: white;
   --orange-colour: #e21e26;
   --green-colour: #009046;
-}
-
-.locations {
-  background-color: #000000;
-  color: #fff;
-}
-
-.footer {
-  background-color: #000000;
-  color: #fff;
-  width: 100%;
-}
-
-.faq-item {
-  margin: 10px 0;
-}
-
-.faq-question {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-left: 10px;
-}
-
-.faq-answer {
-  padding: 10px;
-  border: 1px solid #007bff;
-  margin-top: 5px;
-  margin-left: 30px;
-}
-
-.rentLease-body {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.rentLease-card {
-  border: 1px solid #000000;
-  width: 348px;
-  height: 178px;
-}
-
-.rentLease-text {
-  font-size: 14px;
+  font-family: Poppins;
 }
 
 h2 {
@@ -111,16 +70,30 @@ ul {
   text-decoration: none;
 }
 
+.navmsg {
+  gap: 0px;
+  opacity: 0.5;
+  font-family: Poppins;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 56.74px;
+  letter-spacing: -0.035em;
+  text-align: center;
+  color: #000000;
+}
+
 .flex-container {
   display: flex;
-  /* align-items: center; */
-  /* background-color: DodgerBlue; */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Disable vertical scrolling */
+  white-space: nowrap; /* Prevents content from wrapping to the next line */
+  margin: 0;
+  gap: 20px; /* Optional: space between each car-container */
 }
 
 .flex-container > div {
   background-color: #f1f1f1;
   margin: 10px;
-  /* padding: 20px; */
   font-size: 30px;
   width: 754px;
   height: 290px;
@@ -141,13 +114,11 @@ ul {
   font-weight: 400;
   line-height: 18.5px;
   text-align: left;
-  font-family: Poppins;
   font-size: 14px;
   font-weight: 600;
   line-height: 21px;
   letter-spacing: -0.02em;
   text-align: center;
-  
 }
 
 .car-container {
@@ -156,6 +127,16 @@ ul {
   max-height: 290px;
   background: #ffffff;
   border: 1px solid #d9d9d9;
+  min-width: 400px; /* Adjust the minimum width as needed */
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex: 0 0 auto; /* Prevent shrinking and ensure each car-container stays at its width */
+  justify-content: space-between;
+  border-radius: 8px;
+  box-sizing: border-box; /* Include padding in the element's width and height */
+  overflow: hidden; /* Prevent content from overflowing the container */
+  width: 400px; /* Adjust this width as needed */
 }
 
 .car-deets {
@@ -164,8 +145,14 @@ ul {
   flex-direction: column;
   background: #ffffff;
   border: 1px solid #d9d9d9;
-
   max-width: 394px;
+  text-align: left;
+  flex-grow: 1;
+  text-align: left;
+  overflow: hidden; /* Hide any content that overflows the container */
+  text-overflow: ellipsis; /* Add ellipsis if text overflows */
+  overflow: visible; /* Ensure content is visible */
+  white-space: normal; /* Allow text to wrap to the next line */
 }
 
 .car-deets p.carp {
@@ -174,7 +161,6 @@ ul {
   font-weight: 400;
   line-height: 18.5px;
   text-align: left;
-  padding: auto;
   width: 298px;
   height: 37px;
   top: 964px;
@@ -216,16 +202,25 @@ ul {
   left: 465px;
   gap: 0px;
   opacity: 0px;
+  /* margin-top: 10px; */
 }
 
 .car-feat ul {
   margin-left: 0px;
   padding-left: 0px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 .car-feat-ico {
   display: flex;
   flex-direction: row;
+  display: flex;
+  align-items: center;
+  /* margin-right: 20px; */
 }
 
 .ico1 {
@@ -261,21 +256,20 @@ ul {
 
 .car-feat-ico img {
   padding-right: 8px;
+  margin-right: 8px;
+  /* width: 24px;
+  height: 24px; */
 }
 
 .car-bk {
   display: flex;
-  flex: 1;
   padding-left: 40px;
-
-  justify-items: auto;
+  margin-top: 20px;
+  justify-content: space-between; /* Ensures price and button are on opposite ends */
+  align-items: center; /* Aligns items vertically in the center */
 }
 
 .car-bk h4 {
-  width: Hug (152px) px;
-  height: Fixed (30px) px;
-  top: 1125px;
-  left: 464px;
   gap: 4px;
   opacity: 0px;
   font-family: Poppins;
@@ -284,59 +278,280 @@ ul {
   line-height: 24px;
   text-align: left;
   color: #1a202c;
-  padding-right: 65px;
+  margin: 0; /* Removes any default margin from the heading */
 }
 
 .car-book {
-  width: 98px;
-  height: 37px;
-  /* top: 1121px;
-  left: 680px; */
-  padding: 0px 20px 0px 20px;
-  gap: 8px;
-  border-radius: 4px 0px 0px 0px;
   opacity: 0px;
-  background: #e21e26;
-  color: #fff;
   /* On click;
   Navigate to: "None"; 
   animate: Instant;*/
   animation-duration: 0ms;
-  /* width: 68px;
-height: 21px;
-gap: 0px;
-opacity: 0px; */
   font-family: Poppins;
   font-size: 14px;
   font-weight: 600;
   line-height: 21px;
   letter-spacing: -0.02em;
   text-align: center;
+  background-color: #e21e26;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  margin-right: 20px;
+  padding: 0px 20px 0px 20px;
+  gap: 8px;
+  border-radius: 4px 0px 0px 0px;
+  opacity: 0px;
+  white-space: nowrap; /* Prevents text from wrapping in the button */
 }
 
 .car-book p {
-  width: 68px;
-  height: 21px;
   gap: 0px;
   opacity: 0px;
 }
+
+.car-book:hover {
+  background-color: var(--green-colour);
+}
+
+.rentLease-body {
+  /* display: flex; */
+  flex-direction: row;
+  /* justify-content: center; */
+}
+
+.rentLease {
+  text-align: center; /* Center align the main title */
+}
+
+.rentLease-body {
+  display: flex;
+  flex-wrap: wrap; /* Wrap items if needed on smaller screens */
+  justify-content: center; /* Center align items horizontally */
+}
+
+.step {
+  display: flex;
+  flex-direction: column; /* Stack heading and card vertically */
+  align-items: center; /* Center align items horizontally */
+  margin: 20px; /* Add margin around each step */
+}
+
+.step h2 {
+  margin-bottom: 10px; /* Space between heading and card */
+}
+
+.rentLease-card {
+  border: 1px solid #000000;
+  width: 348px;
+  height: 178px;
+  display: flex;
+  flex-direction: column; /* Arrange image and text vertically */
+  align-items: center; /* Center align items horizontally */
+  padding: 10px; /* Add padding inside the box */
+  box-sizing: border-box; /* Include padding and border in the element’s total width and height */
+}
+
+.rentLease-image {
+  margin-bottom: 10px; /* Space between image and text */
+}
+
+.rentLease-text {
+  font-size: 14px;
+  margin: 0; /* Remove default margin */
+}
+
+
+/* Responsive design */
+@media (min-width: 768px) {
+  .rentLease {
+    flex-direction: row; /* Stack items horizontally on larger screens */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+  }
+  
+  .rentLease-body {
+    flex-direction: row; /* Arrange items in a row on larger screens */
+    flex-wrap: nowrap; /* Prevent wrapping on larger screens */
+  }
+
+  .rentLease-body > div {
+    flex-direction: column; /* Stack heading and card vertically */
+  }
+}
+
+.locations {
+  /* background-color: #000000; */
+  /* color: #fff; */
+  /* width: 1312px;
+  height: 325px;
+  top: 2179px;
+  left: 64px; */
+  gap: 0px;
+  opacity: 0px;
+  padding-left: 64px;
+  padding-right: 64px;
+  margin-left: 64px;
+  margin-right: 64px;
+}
+
+.locations h2 {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+.locs li {
+  flex: 1;
+}
+
+.locations .locs ul {
+  display: flex; /* Use Flexbox to display items in a row */
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+}
+
+.locations .locs ul li {
+  display: flex; /* Align image and text in a row */
+  align-items: center; /* Vertically align items */
+  margin-right: 20px; /* Add some space between items */
+}
+
+.locations .locs ul li img {
+  margin-right: 8px; /* Add space between the icon and the text */
+  width: 54px;
+  height: 26px;
+  top: 0.59px;
+  left: 34.88px;
+  gap: 0px;
+}
+
+/* ttest aane */
+.locations {
+  background-color: #000000;
+  color: #fff;
+  padding: 0 64px; /* Adjusted padding */
+  margin: 0 auto; /* Center align */
+  width: 100%; /* Full width */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.locations h2 {
+  padding: 56px 0; /* Top and bottom padding */
+  text-align: center; /* Center align the heading */
+}
+
+.locations .locs {
+  overflow-x: auto; /* Allow horizontal scrolling if needed */
+  padding-bottom: 110px;
+}
+
+/* Default styling for larger screens */
+.locations .locs ul {
+  display: flex; /* Use Flexbox to display items in a row */
+  flex-wrap: wrap; /* Allow wrapping of items */
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+  justify-content: center; /* Center align items horizontally */
+}
+
+.locations .locs ul li {
+  display: flex; /* Align image and text in a row */
+  align-items: center; /* Vertically align items */
+  margin: 10px; /* Add space around items */
+}
+
+.locations .locs ul li img {
+  margin-right: 8px; /* Add space between the icon and the text */
+  width: 22.24px; /* Adjusted to match the image size */
+  height: 28.59px; /* Adjusted to match the image size */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .locations {
+    padding: 0 16px; /* Reduced padding on smaller screens */
+  }
+
+  .locations .locs ul {
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-rows: repeat(2, auto); /* 2 rows */
+    gap: 20px; /* Add space between grid items */
+    justify-items: center; /* Center align items horizontally within each grid cell */
+    text-align: center; /* Center align text */
+  }
+
+  .locations .locs ul li {
+    margin: 0; /* Remove margin to ensure even spacing */
+  }
+
+  .locations .locs ul li img {
+    width: 22.24px; /* Keep the icon size consistent */
+    height: 28.59px; /* Keep the icon size consistent */
+  }
+}
+
+
+/* test aane */
+
+.faq h2 {
+  padding-top: 56px;
+  padding-bottom: 69px;
+}
+
+.faq-card {
+  width: 1144px;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.faq-question {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.faq-answer {
+  padding: 10px;
+  border: 1px solid #007bff;
+  margin-top: 5px;
+  margin-left: 30px;
+}
+
+.faq-card {
+  border: 3px solid #fff;
+}
+
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
-  background-color: #eee;
-  color: #444;
+  background-color: #fff;
+  color: #000000;
   cursor: pointer;
   padding: 18px;
   width: 100%;
   text-align: left;
-  border: none;
+  border: 0px solid #fff;
   outline: none;
   transition: 0.4s;
+  gap: 0px;
+  opacity: 0px;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.2px;
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active,
 .accordion:hover {
-  background-color: #ccc;
+  background-color: #fff;
 }
 
 /* Style the accordion panel. Note: hidden by default */
@@ -346,18 +561,39 @@ opacity: 0px; */
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+  border: 0px solid #fff;
+  border-bottom: 3px solid #cdd6da40;
+}
+
+.panel p {
+  width: 800px;
+  height: 25px;
+  gap: 0px;
+  opacity: 0.5;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24.71px;
+  text-align: left;
 }
 
 .accordion:after {
   content: "\02795"; /* Unicode character for "plus" sign (+) */
   font-size: 13px;
-  color: #777;
+  color: #fff;
   float: right;
   margin-left: 5px;
 }
 
 .active:after {
-  content: "\2796"; /* Unicode character for "minus" sign (-) */
+  content: "\2796"; /*Unicode character for "minus" sign (-) */
+  /*content: "\00D7";  Unicode character for "multiplication sign (×)" */
+}
+
+.footer {
+  background-color: #000000;
+  color: #fff;
+  width: 100%;
 }
 
 .footer {
