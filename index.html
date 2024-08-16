@@ -11,7 +11,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
-    <!-- <link rel="stylesheet" href="./css/responsive.css" /> -->
   </head>
   <body>
     <header>
@@ -20,56 +19,72 @@
           <ul>
             <li class="navi-ico">
               <a href="https://m.facebook.com/Diamondlease/"
-                ><img src="./images/fb-ico.svg" alt="to Facebook"
+                ><img src="./images/fb-ico.svg" alt="Facebook"
               /></a>
             </li>
             <li class="navi-ico">
               <a href="https://www.instagram.com/diamondlease"
-                ><img src="./images/ico-insta.svg" alt="to Instagram"
+                ><img src="./images/ico-insta.svg" alt="Instagram"
               /></a>
             </li>
             <li class="navi-ico">
               <a href="https://x.com/diamondlease"
-                ><img src="./images/ico-x.svg" alt="to Facebook"
+                ><img src="./images/ico-x.svg" alt="X"
               /></a>
             </li>
             <li class="navi-ico">
               <a href="https://www.linkedin.com/company/diamondlease/"
-                ><img src="./images/ico-lnkdn.svg" alt="to Facebook"
+                ><img src="./images/ico-lnkdn.svg" alt="LinkedIn"
               /></a>
             </li>
           </ul>
         </div>
-        <br />
 
         <nav>
-          <ul>
+          <ul class="nav-menu">
             <li class="logo"><img src="./Logo.svg" alt="Car Rental" /></li>
-            <li><a href="./footer.html">About</a></li>
+            <li><a href="">About</a></li>
             <li><a href="">Offers</a></li>
             <li><a href="">Corporate</a></li>
             <li><a href="">Personal</a></li>
             <li><a href="">Locations</a></li>
             <li><a href="">Contact Us</a></li>
-            <li><a href="">Contact Us</a></li>
             <li><a href="" class="btn">Noti</a></li>
             <li><a href="" class="btn">Jhon Doe</a></li>
           </ul>
+          <button class="menu-toggle" aria-label="Toggle navigation">
+            &#9776;
+          </button>
         </nav>
-        <br />
-        <br /><br />
+
         <p class="navmsg">
           Sunday Pick Up/Drop-Off only at Dubai Silicon Oasis & Habtoor Grand
           Sales Counters | All Rates inclusive of VAT. T&C’s apply | Follow us
           on Social Media for New Offers
         </p>
       </div>
+      <script>
+        document
+          .querySelector(".menu-toggle")
+          .addEventListener("click", function () {
+            const menu = document.querySelector(".nav-menu");
+            menu.classList.toggle("open");
+
+            // Toggle menu icon
+            this.textContent = this.textContent === "✕" ? "☰" : "✕";
+          });
+      </script>
     </header>
+
     <main>
-      <figure>
+      <figure class="promo-figure">
         <img src="./promo-voucher.jpg" alt="Summer Promotion" />
         <figcaption>
-          Recieve guarnteed <br />on a monthly hire or lease
+          <div class="caption-content">
+            Receive guaranteed on a monthly hire or lease
+            <br />
+            <button class="shop-now-btn">Gift Voucher</button>
+          </div>
         </figcaption>
       </figure>
 
@@ -206,7 +221,7 @@
             <div class="rentLease-card">
               <img
                 class="rentLease-image"
-                src="./images/renlease01.svg"
+                src="./images/renlease02.svg"
                 alt=""
                 loading="lazy"
                 height="38px"
@@ -223,7 +238,7 @@
             <div class="rentLease-card">
               <img
                 class="rentLease-image"
-                src="./images/renlease01.svg"
+                src="./images/renlease03.svg"
                 alt=""
                 loading="lazy"
                 height="38px"
@@ -265,7 +280,7 @@
             </li>
           </ul>
         </div>
-      </div>      
+      </div>
 
       <div>
         <h2>Frequently asked questions</h2>
@@ -326,48 +341,65 @@
     </main>
 
     <footer class="footer">
-      <div>
-        <div>
+      <div class="f_content">
+        <div class="f_logo">
           <img src="./images/footer-logo.svg" alt="Al Habtoor Logo" />
-          Member of the Al Habtoor Group
+          <p>Member of the Al Habtoor Group</p>
         </div>
-        <div>
-          <ul>
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Services</li>
-          </ul>
-        </div>
-        <div>
-          <ul>
-            <li>Offers</li>
-            <li>Locations</li>
-            <li>Contact Us</li>
-          </ul>
+        <!-- added new classes
+ seprated divs -->
+        <div class="m_content">
+          <div class="m_content1">
+            <div class="m1">
+              <ul>
+                <li>Home</li>
+                <li>About Us</li>
+                <li>Services</li>
+              </ul>
+            </div>
+            <div class="m1">
+              <ul>
+                <li>Offers</li>
+                <li>Locations</li>
+                <li>Contact Us</li>
+              </ul>
+            </div>
+
+            <div class="m1">
+              <ul>
+                <li>FAQ</li>
+                <li>Privacy Policy</li>
+                <li>Service Request</li>
+              </ul>
+            </div>
+
+            <div class="m1">
+              <ul>
+                <li>Careers</li>
+                <li>Terms & Conditions</li>
+              </ul>
+            </div>
+          </div>
+          <div class="m_content2">
+            <p>Al Habtoor Company</p>
+            <ul>
+              <li>Hospitality</li>
+              <li>Real Estate</li>
+              <li>Education</li>
+              <li>Publishing</li>
+              <li>Automotive</li>
+              <li>Vehicle Leasing</li>
+            </ul>
+          </div>
         </div>
 
-        <div>
-          <ul>
-            <li>FAQ</li>
-            <li>Privacy Policy</li>
-            <li>Service Request</li>
-          </ul>
-        </div>
-
-        <div>
-          <ul>
-            <li>Carreers</li>
-            <li>Terms & Conditions</li>
-          </ul>
+        <div class="follow">
+          <h5>FOLLOW US ON</h5>
         </div>
       </div>
-      <div>© 2018 Car rental LLC - All Rights Reserved.</div>
+      <div class="c_right">© 2018 Car rental LLC - All Rights Reserved.</div>
     </footer>
     <script src="./js/faq.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
-
-<!-- poppins
-helvetica
-open sans -->

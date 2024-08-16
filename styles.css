@@ -32,55 +32,217 @@ ul {
   list-style-type: none;
 }
 
-.navbar li {
-  float: left; /* Make the list items inline */
+/* adutha test */
+/* Base Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: relative;
 }
 
-.navbar li.logo {
-  float: left; /* Make the list items inline */
-  padding-right: 20%;
+.navi-social ul {
+  display: flex;
+  gap: 10px;
 }
 
-.navbar li a {
-  display: block;
+.navi-social li a img {
+  width: 20px;
+  height: 20px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-menu .logo img {
+  width: 120px;
+}
+
+.nav-menu li a {
   color: black;
-  text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
+  padding: 10px;
 }
 
-.navbar li a:hover {
-  background-color: #111; /* Background color on hover */
+.nav-menu .btn {
+  background-color: #111;
   color: white;
-}
-
-/* Navbar Socials */
-.navi-social {
-  padding-left: 80%;
-}
-.navi-social li {
-  float: left; /* Make the list items inline */
-}
-
-.navi-social li a {
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 10px 12px;
-  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 4px;
 }
 
 .navmsg {
-  gap: 0px;
-  opacity: 0.5;
-  font-family: Poppins;
-  font-size: 10px;
-  font-weight: 400;
-  line-height: 56.74px;
-  letter-spacing: -0.035em;
-  text-align: center;
-  color: #000000;
+  font-size: 12px;
+  text-align: right;
+  padding: 10px 20px;
+  background-color: #f8f8f8;
 }
+
+.menu-toggle {
+  display: none;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navi-social{
+    display: none;
+  }
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    padding: 10px;
+  }
+
+  .nav-menu li {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+    font-size: 24px;
+  }
+
+  .navmsg {
+    width: 100%;
+    text-align: center;
+    background-color: #eee;
+    padding: 5px 0;
+    font-size: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  /* Running message */
+  .navmsg::before {
+    content: attr(data-message);
+    position: absolute;
+    left: 100%;
+    animation: scroll 15s linear infinite;
+  }
+
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+
+  /* Overlay for expanded menu */
+  .nav-menu.open {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .navbar::after {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .nav-menu.open + .navbar::after {
+    opacity: 1;
+  }
+}
+
+/* adutha test */
+
+/* test aadey */
+.promo-figure {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.promo-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: all 0.5s ease; /* Smooth transition */
+}
+
+.caption-content {
+  padding-top: 12rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: Poppins, sans-serif;
+  font-size: 18.37px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.5;
+  transition: all 0.5s ease; /* Smooth transition */
+}
+
+.shop-now-btn {
+  font-family: Poppins;
+  font-size: 15.22px;
+  font-weight: 600;
+  text-align: left;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #009046;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.5s ease; /* Smooth transition */
+}
+
+@media (max-width: 768px) {
+  .promo-figure img {
+    height: auto;
+    width: 100%;
+  }
+
+  .caption-content {
+    /* font-size: 18px; */
+    padding-top: 6rem;
+    font-family: Poppins;
+    font-size: 9.8px;
+    font-weight: 400;
+    line-height: 14.35px;
+    text-align: left;
+  }
+
+  .shop-now-btn {
+    padding: 7px 16px;
+    /* font-size: 14px; */
+    font-family: Poppins;
+    font-size: 8.12px;
+    font-weight: 600;
+    line-height: 10.27px;
+    text-align: left;
+  }
+}
+/* test aaadeyy */
 
 .flex-container {
   display: flex;
@@ -317,12 +479,6 @@ ul {
   background-color: var(--green-colour);
 }
 
-.rentLease-body {
-  /* display: flex; */
-  flex-direction: row;
-  /* justify-content: center; */
-}
-
 .rentLease {
   text-align: center; /* Center align the main title */
 }
@@ -338,9 +494,11 @@ ul {
   flex-direction: column; /* Stack heading and card vertically */
   align-items: center; /* Center align items horizontally */
   margin: 20px; /* Add margin around each step */
+  margin-top: 0;
 }
 
 .step h2 {
+  color: #e21e26;
   margin-bottom: 10px; /* Space between heading and card */
 }
 
@@ -364,6 +522,17 @@ ul {
   margin: 0; /* Remove default margin */
 }
 
+.rentLease h2 {
+  width: auto;
+  gap: 0px;
+  font-family: Poppins;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 51px;
+  text-align: center;
+  padding-top: 0;
+  padding-bottom: 0;
+}
 
 /* Responsive design */
 @media (min-width: 768px) {
@@ -371,7 +540,7 @@ ul {
     flex-direction: row; /* Stack items horizontally on larger screens */
     flex-wrap: wrap; /* Allow wrapping if needed */
   }
-  
+
   .rentLease-body {
     flex-direction: row; /* Arrange items in a row on larger screens */
     flex-wrap: nowrap; /* Prevent wrapping on larger screens */
@@ -380,15 +549,29 @@ ul {
   .rentLease-body > div {
     flex-direction: column; /* Stack heading and card vertically */
   }
+
+  .rentLease-text {
+    font-family: Helvetica;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.5px;
+    text-align: center;
+    width: auto;
+    gap: 0px;
+    opacity: 0.8;
+  }
 }
 
+@media screen and (max-width: 768px) {
+  .rentLease h2 {
+    width: auto;
+    opacity: 0px;
+    font-family: Poppins;
+    font-weight: 400;
+    text-align: left;
+  }
+}
 .locations {
-  /* background-color: #000000; */
-  /* color: #fff; */
-  /* width: 1312px;
-  height: 325px;
-  top: 2179px;
-  left: 64px; */
   gap: 0px;
   opacity: 0px;
   padding-left: 64px;
@@ -494,7 +677,6 @@ ul {
   }
 }
 
-
 /* test aane */
 
 .faq h2 {
@@ -590,12 +772,185 @@ ul {
   /*content: "\00D7";  Unicode character for "multiplication sign (×)" */
 }
 
+/* test aanu */
+/* Responsive Design */
+@media (max-width: 768px) {
+  .faq {
+    padding: 0 10px; /* Reduced padding on smaller screens */
+  }
+
+  .faq h2 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: auto;
+    height: auto;
+    gap: 0px;
+    opacity: 0px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+  }
+
+  .faq-card {
+    margin: 0;
+    padding: 0; /* Remove padding for smaller screens */
+    width: 100%; /* Ensure full width */
+  }
+
+  .faq-question {
+    font-size: 14px; /* Adjust font size for mobile */
+  }
+
+  .faq-answer {
+    padding: 8px; /* Adjust padding for mobile */
+  }
+
+  .accordion {
+    font-size: 14px; /* Adjust font size for mobile */
+    padding: 15px; /* Adjust padding for mobile */
+  }
+
+  .panel p {
+    font-size: 12px; /* Adjust font size for mobile */
+    /* line-height: 20px;  */
+    /* Adjust line height for mobile */
+    width: auto;
+    height: auto;
+    opacity: 0.8;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15.66px;
+    text-align: left;
+  }
+}
+
+/* test nadakatte */
+
 .footer {
   background-color: #000000;
   color: #fff;
   width: 100%;
+  display: grid;
+  grid-template-rows: 4fr 1fr;
+  height: 500px;
 }
 
-.footer {
-  width: 100%;
+.f_logo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 15rem;
 }
+
+.f_logo img {
+  width: auto; /* Adjust image width automatically */
+  height: auto; /* Adjust image height automatically */
+}
+
+.f_content {
+  border-bottom: 1px solid #d0cccc;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  padding: 40px 80px 24px 80px;
+  border-bottom: 0.5px solid #ffffff;
+}
+
+.c_right {
+  justify-self: center;
+  align-self: center;
+  height: 18px;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+}
+
+.m_content {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  padding: 10px;
+}
+
+.m1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.m1 ul {
+  padding: 0%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.m_content1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.m_content2 {
+  display: grid;
+}
+
+.m_content2 ul {
+  padding: 0%;
+  display: flex;
+  gap: 10px;
+}
+
+.f_logo p,
+.m1 li,
+.m_content2 p,
+.m_content2 li {
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  .footer {
+    grid-template-rows: auto; /* Adjust to content height */
+    height: auto; /* Let the footer height adjust */
+  }
+
+  .f_content {
+    grid-template-columns: 1fr; /* Stack the logo and menu vertically */
+    padding: 20px; /* Reduce padding */
+  }
+
+  .f_logo {
+    margin-bottom: 20px; /* Add spacing below the logo */
+    align-items: center; /* Center logo content */
+  }
+
+  .m_content {
+    grid-template-rows: 1fr; /* Stack all menus vertically */
+  }
+
+  .m_content1 {
+    grid-template-columns: 1fr 1fr; /* Two columns on mobile */
+    grid-template-rows: auto auto; /* Allow rows to adjust */
+    gap: 20px; /* Add spacing between columns */
+  }
+
+  .m_content2 {
+    margin-top: 20px; /* Add space above secondary content */
+  }
+
+  .m_content2 ul {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items */
+  }
+
+  .c_right {
+    text-align: center; /* Center align the copyright text */
+  }
+}
+
+/* testtestest */
