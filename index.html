@@ -44,32 +44,36 @@
           <img src="./Logo.svg" alt="Car Rental" />
         </div>
         <nav>
-          <ul class="nav-menu">
-            <li><a href="">About</a></li>
-            <li><a href="">Offers</a></li>
-            <li><a href="">Corporate</a></li>
-            <li><a href="">Personal</a></li>
-            <li><a href="">Locations</a></li>
-            <li><a href="">Contact Us</a></li>
-            <li><a href="" class="btn">Noti</a></li>
-            <li><a href="" class="btn">John Doe</a></li>
+          <div class="menu-toggle" id="mobile-menu">
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+          </div>
+          <ul class="nav-menu" id="nav-menu">
+            <li class="nav-links"><a href="#">About</a></li>
+            <li class="nav-links"><a href="#">Offers</a></li>
+            <li class="nav-links"><a href="#">Corporate</a></li>
+            <li class="nav-links"><a href="#">Personal</a></li>
+            <li class="nav-links"><a href="#">Locations</a></li>
+            <li class="nav-links"><a href="#">Contact Us</a></li>
+            <li class="nav-links"><a href="#" class="btn">Noti</a></li>
+            <li class="nav-links"><a href="#" class="btn">John Doe</a></li>
           </ul>
-          <button class="menu-toggle" aria-label="Toggle navigation">
-            &#9776;
-          </button>
-          <script>
-            document
-              .querySelector(".menu-toggle")
-              .addEventListener("click", function () {
-                const menu = document.querySelector(".nav-menu");
-                menu.classList.toggle("open");
-          
-                // Toggle menu icon between '☰' and '✕'
-                this.textContent = this.textContent === "✕" ? "☰" : "✕";
-              });
-          </script>
         </nav>
+        
+        <script>
+          const mobileMenu = document.getElementById("mobile-menu");
+          const navMenu = document.getElementById("nav-menu");
+        
+          mobileMenu.addEventListener("click", () => {
+            navMenu.classList.toggle("open");
+            mobileMenu.classList.toggle("menu-open");
+          });
+        </script>
+        
+        
       </div>
+
       <p class="navmsg">
         <span
           >Sunday Pick Up/Drop-Off only at Dubai Silicon Oasis & Habtoor Grand
@@ -86,22 +90,70 @@
           <ul class="booking-tabs">
             <li class="tab active">Same as Pick-Up</li>
             <li class="tab">Different Drop-Off</li>
-            <li class="tab">Select vehicle type</li>
+            <li class="tab">
+              <select class="vehicle-type-dropdown">
+                <option value="sedan">Sedan</option>
+                <option value="suv">SUV</option>
+                <option value="luxury">Luxury</option>
+                <option value="van">Van</option>
+                <option value="minibus">Minibus</option>
+              </select>
+            </li>
           </ul>
           <div class="search-icon">
             <button class="search-btn"><i class="fa fa-search"></i></button>
           </div>
         </div>
+
+        <div class="quick-book-container">
+          <div class="location-select">
+            <select class="location-dropdown">
+              <option value="dubai">Dubai</option>
+              <option value="abu-dhabi">Abu Dhabi</option>
+              <option value="sharjah">Sharjah</option>
+              <option value="fujairah">Fujairah</option>
+              <option value="ras-al-khaimah">Ras Al Khaimah</option>
+              <option value="al-quoz">Al Quoz</option>
+            </select>
+          </div>
+
+          <div class="date-time-select">
+            <input type="text" class="date-picker" placeholder="30/10/2023" />
+            <input type="text" class="time-picker" placeholder="09:00 AM" />
+          </div>
+
+          <div class="date-time-select">
+            <input type="text" class="date-picker" placeholder="29/11/2023" />
+            <input type="text" class="time-picker" placeholder="09:00 AM" />
+          </div>
+
+          <div class="quick-book-button">
+            <button class="quick-book">Quick Book</button>
+          </div>
+        </div>
+
         <div class="app-download">
           <p>Download our App for easy accessibility anytime, anywhere!</p>
           <div class="app-buttons">
-            <img src="./images/app-store.png" alt="App Store" />
-            <img src="./images/google-play.png" alt="Google Play" />
+            <img src="./images/social/app-store.svg" alt="App Store" />
+            <img src="./images/social/play-store.svg" alt="Google Play" />
           </div>
         </div>
       </div>
 
       <!-- TESTT -->
+
+      <!-- anither test -->
+      <div class="side-buttons">
+        <div class="button call-button">
+          <img src="./images/social/call-icon.svg" alt="Call" />
+        </div>
+        <div class="button chat-button">
+          <div class="chat-text">24/7</div>
+        </div>
+      </div>
+
+      <!-- anither test -->
 
       <figure class="promo-figure">
         <img src="./promo-voucher.jpg" alt="Summer Promotion" />
@@ -404,8 +456,7 @@
           <img src="./images/footer-logo.svg" alt="Al Habtoor Logo" />
           <p>Member of the Al Habtoor Group</p>
         </div>
-        <!-- added new classes
- seprated divs -->
+
         <div class="m_content">
           <div class="m_content1">
             <div class="m1">
@@ -422,7 +473,6 @@
                 <li>Contact Us</li>
               </ul>
             </div>
-
             <div class="m1">
               <ul>
                 <li>FAQ</li>
@@ -430,7 +480,6 @@
                 <li>Service Request</li>
               </ul>
             </div>
-
             <div class="m1">
               <ul>
                 <li>Careers</li>
@@ -451,12 +500,53 @@
           </div>
         </div>
 
-        <div class="follow">
-          <h5>FOLLOW US ON</h5>
+        <!-- Added the social media icons section here -->
+        <div class="frame-parent12">
+          <div class="follow-us-on-wrapper">
+            <div class="follow-us-on">FOLLOW US ON</div>
+          </div>
+          <div class="social-icons-container">
+            <div class="social-icons-wrapper">
+              <img
+                class="social-icons"
+                loading="lazy"
+                alt=""
+                src="../images/social/social-icons.svg"
+              />
+              <img
+                class="social-icons"
+                alt=""
+                src="../images/social/social-icons-1.svg"
+              />
+              <img
+                class="social-icons"
+                alt=""
+                src="./images/social/social-icons-2.svg"
+              />
+              <img
+                class="social-icons"
+                alt=""
+                src="./images/social/social-icons-3.svg"
+              />
+              <img
+                class="social-icons"
+                alt=""
+                src="./images/social/social-icons-4.svg"
+              />
+            </div>
+            <img
+              class="image-273-icon"
+              loading="lazy"
+              alt=""
+              src="./images/social/image-273@2x.png"
+            />
+          </div>
         </div>
+        <!-- End of social media icons section -->
       </div>
       <div class="c_right">© 2018 Car rental LLC - All Rights Reserved.</div>
     </footer>
+
     <script src="./js/faq.js"></script>
     <script src="main.js"></script>
   </body>
