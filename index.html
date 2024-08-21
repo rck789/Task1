@@ -43,12 +43,12 @@
         <div class="logo">
           <img src="./Logo.svg" alt="Car Rental" />
         </div>
+        <div class="menu-toggle" id="mobile-menu">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </div>
         <nav>
-          <div class="menu-toggle" id="mobile-menu">
-            <span class="menu-bar"></span>
-            <span class="menu-bar"></span>
-            <span class="menu-bar"></span>
-          </div>
           <ul class="nav-menu" id="nav-menu">
             <li class="nav-links"><a href="#">About</a></li>
             <li class="nav-links"><a href="#">Offers</a></li>
@@ -56,22 +56,10 @@
             <li class="nav-links"><a href="#">Personal</a></li>
             <li class="nav-links"><a href="#">Locations</a></li>
             <li class="nav-links"><a href="#">Contact Us</a></li>
-            <li class="nav-links"><a href="#" class="btn">Noti</a></li>
+            <li class="nav-links"><a href="#" class="btn noti">Noti</a></li>
             <li class="nav-links"><a href="#" class="btn">John Doe</a></li>
           </ul>
         </nav>
-        
-        <script>
-          const mobileMenu = document.getElementById("mobile-menu");
-          const navMenu = document.getElementById("nav-menu");
-        
-          mobileMenu.addEventListener("click", () => {
-            navMenu.classList.toggle("open");
-            mobileMenu.classList.toggle("menu-open");
-          });
-        </script>
-        
-        
       </div>
 
       <p class="navmsg">
@@ -82,6 +70,26 @@
         >
       </p>
     </header>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script>
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navMenu = document.getElementById("nav-menu");
+      const overlay = document.getElementById("overlay");
+
+      mobileMenu.addEventListener("click", () => {
+        navMenu.classList.toggle("open");
+        mobileMenu.classList.toggle("menu-open");
+        overlay.classList.toggle("show");
+      });
+
+      // Close the menu and overlay when the overlay is clicked
+      overlay.addEventListener("click", () => {
+        navMenu.classList.remove("open");
+        overlay.classList.remove("show");
+      });
+    </script>
 
     <main>
       <!-- TESTT -->
@@ -118,18 +126,38 @@
           </div>
 
           <div class="date-time-select">
-            <input type="text" class="date-picker" placeholder="30/10/2023" />
-            <input type="text" class="time-picker" placeholder="09:00 AM" />
+            <input
+              type="datetime-local"
+              class="datetime-picker"
+              placeholder="Pick-Up Date and Time"
+            />
           </div>
 
           <div class="date-time-select">
-            <input type="text" class="date-picker" placeholder="29/11/2023" />
-            <input type="text" class="time-picker" placeholder="09:00 AM" />
+            <input
+              type="datetime-local"
+              class="datetime-picker"
+              placeholder="Drop-Off Date and Time"
+            />
           </div>
 
           <div class="quick-book-button">
             <button class="quick-book">Quick Book</button>
           </div>
+          <script>
+            document
+              .querySelector(".quick-book")
+              .addEventListener("click", function () {
+                const quickBookContainer = document.querySelector(
+                  ".quick-book-container"
+                );
+                quickBookContainer.style.display =
+                  quickBookContainer.style.display === "none" ||
+                  quickBookContainer.style.display === ""
+                    ? "flex"
+                    : "none";
+              });
+          </script>
         </div>
 
         <div class="app-download">
@@ -141,9 +169,55 @@
         </div>
       </div>
 
+      <div class="mobileBook">
+        <div class="booking-buttons">
+          <button class="quick-book">Book a Car</button>
+          <button class="quick-book" onclick="toggleBookingContent()">
+            Quick Book
+          </button>
+        </div>
+        <div class="quick-book-content">
+          <div class="location-select">
+            <select class="location-dropdown">
+              <option value="dubai">Dubai</option>
+              <option value="abu-dhabi">Abu Dhabi</option>
+              <option value="sharjah">Sharjah</option>
+              <option value="fujairah">Fujairah</option>
+              <option value="ras-al-khaimah">Ras Al Khaimah</option>
+              <option value="al-quoz">Al Quoz</option>
+            </select>
+          </div>
+          <div class="date-time-select">
+            <input
+              type="datetime-local"
+              class="datetime-picker"
+              placeholder="Pick-Up Date and Time"
+            />
+          </div>
+
+          <div class="date-time-select">
+            <input
+              type="datetime-local"
+              class="datetime-picker"
+              placeholder="Drop-Off Date and Time"
+            />
+          </div>
+
+          <button class="search-btn">Search</button>
+        </div>
+        <script>
+          function toggleBookingContent() {
+            const content = document.querySelector(".quick-book-content");
+            if (content.style.display === "block") {
+              content.style.display = "none";
+            } else {
+              content.style.display = "block";
+            }
+          }
+        </script>
+      </div>
       <!-- TESTT -->
 
-      <!-- anither test -->
       <div class="side-buttons">
         <div class="button call-button">
           <img src="./images/social/call-icon.svg" alt="Call" />
@@ -152,8 +226,6 @@
           <div class="chat-text">24/7</div>
         </div>
       </div>
-
-      <!-- anither test -->
 
       <figure class="promo-figure">
         <img src="./promo-voucher.jpg" alt="Summer Promotion" />
@@ -317,7 +389,7 @@
                 src="./images/renlease01.svg"
                 alt=""
                 loading="lazy"
-                height="38px"
+                height="1em"
               />
               <p class="rentLease-text">
                 Select the location. Browse through our available options and
@@ -334,7 +406,7 @@
                 src="./images/renlease02.svg"
                 alt=""
                 loading="lazy"
-                height="38px"
+                height="1em"
               />
 
               <p class="rentLease-text">
@@ -351,7 +423,7 @@
                 src="./images/renlease03.svg"
                 alt=""
                 loading="lazy"
-                height="38px"
+                height="1em"
               />
 
               <p class="rentLease-text">
@@ -448,6 +520,7 @@
           </p>
         </div>
       </div>
+      
     </main>
 
     <footer class="footer">

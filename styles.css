@@ -43,21 +43,15 @@ body {
 body {
   box-sizing: border-box;
 }
-/* adutha test */
+
+/* HEADER */
 
 /* Header Base Styles */
 /* Header */
 
 header {
   background-color: white;
-  padding: 0 20px;
   border-bottom: 1px solid #ccc;
-}
-
-header {
-
-  padding: 10px 20px;
-  /* background-color: #333; */
   color: #fff;
 }
 
@@ -145,7 +139,27 @@ header {
 
 /* Menu Toggle Button (for Mobile) */
 .menu-toggle {
-  display: none;
+  display: none; /* Hide by default (for desktop) */
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  display: block;
+  margin: 5px 0;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 15; /* Place it above other content but below the menu */
+  display: none; /* Hide by default */
 }
 
 /* Mobile View */
@@ -155,29 +169,48 @@ header {
     display: none;
   }
 
+  .nav-menu li:nth-last-child(2) {
+    display: none;
+  }
+
   /* Navbar Flexbox Adjustments */
   .navbar {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
   }
 
   /* Mobile Navigation Menu */
+
   .nav-menu {
     display: none;
     flex-direction: column;
-    width: 100%;
+    width: 75%;
+    height: 75%;
     background-color: white;
     position: absolute;
-    top: 50px;
+    margin-left: 10em;
+    margin-bottom: 10em;
     right: 0;
+    top: 0;
     padding: 10px;
-    z-index: 10;
+    z-index: 16;
+    max-height: 85%; /* Adjusted max height */
+    overflow-y: auto; /* Allow scrolling if content overflows */
   }
 
   .nav-menu li {
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
-    width: 100%;
+    width: 75%;
+    text-align: left;
+    /* height: 75%; */
+  }
+
+  /* Push the profile and notification buttons to the bottom */
+  .nav-menu li:last-child {
+    margin-top: auto;
+    margin-bottom: auto;
+    border-bottom: 0px;
   }
 
   /* Toggle Button for Mobile Menu */
@@ -186,6 +219,7 @@ header {
     margin-left: auto;
     font-size: 24px;
     cursor: pointer;
+    z-index: 20; /* Ensure it's on top */
   }
 
   /* Scroll Message Adjustments for Mobile */
@@ -209,7 +243,7 @@ header {
   /* Overlay for expanded menu */
   .nav-menu.open {
     display: flex;
-    min-height: 100vh;
+    /* min-height: 8em; */
   }
 
   .navbar::after {
@@ -219,7 +253,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 75%;
     background: rgba(0, 0, 0, 0.5);
     z-index: -1;
     opacity: 0;
@@ -229,8 +263,14 @@ header {
   .nav-menu.open + .navbar::after {
     opacity: 1;
   }
+
+  /* Show overlay when menu is open */
+  .overlay.show {
+    display: block;
+  }
 }
-/* adutha test */
+/* HEADER */
+
 /* ivdam thott */
 
 /* Global Styles */
@@ -250,25 +290,27 @@ body {
   color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   border-radius: 25px;
   gap: 20px;
+  margin-bottom: 2em;
 }
 
 .booking-form {
-  flex: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .booking-tabs {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   list-style: none;
   padding: 0;
   margin: 0;
+  flex-wrap: wrap;
 }
 
 .tab {
@@ -277,6 +319,7 @@ body {
   background-color: rgba(255, 255, 255, 0.1);
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-align: center;
 }
 
 .tab.active,
@@ -304,6 +347,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 10px;
 }
 
 .search-btn {
@@ -315,38 +359,40 @@ body {
 
 .quick-book-container {
   display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
   gap: 20px;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
 }
 
-.location-select {
-  flex: 1;
-}
-
-.location-dropdown {
-  width: 100%;
-  padding: 10px;
-  border-radius: 15px;
-  border: none;
-}
-
+.location-select,
 .date-time-select {
   display: flex;
+  flex-direction: column;
   gap: 10px;
+  width: 15%;
 }
 
+.location-dropdown,
 .date-picker,
 .time-picker {
+  width: 100%;
   padding: 10px;
   border-radius: 15px;
   border: none;
+}
+
+.datetime-picker {
+  width: 100%;
+  padding: 10px;
+  border-radius: 15px;
+  border: none;
+  text-align: center;
 }
 
 .quick-book-button {
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
 
 .quick-book {
@@ -359,14 +405,16 @@ body {
 }
 
 .app-download {
-  text-align: center;
+  display: flex;
+  width: 100%;
+  float: left;
 }
 
 .app-buttons {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 .app-buttons img {
@@ -374,7 +422,102 @@ body {
   margin: 5px;
 }
 
-/* ivdam vare  */
+.mobileBook {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .app-download {
+    flex-direction: column;
+  }
+  .quick-book-container {
+    display: none;
+  }
+
+  .mobileBook {
+    display: block;
+    margin: 1em 0;
+  }
+
+  .quick-book-content {
+    display: none;
+  }
+
+  .booking-form {
+    display: none;
+  }
+
+  .booking-tabs {
+    justify-content: center;
+  }
+
+  .location-select,
+  .date-time-select {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .location-dropdown,
+  .date-picker,
+  .time-picker {
+    width: 45%;
+  }
+
+  .location-select,
+  .date-time-select {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .location-dropdown,
+  .datetime-picker {
+    width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-section {
+    padding: 10px;
+  }
+
+  .booking-form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .booking-tabs {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .quick-book-container {
+    flex-direction: column;
+  }
+
+  .location-select,
+  .date-time-select {
+    flex-direction: column;
+  }
+
+  .location-dropdown,
+  .date-picker,
+  .time-picker {
+    width: 100%;
+  }
+
+  .location-select,
+  .date-time-select {
+    flex-direction: column;
+  }
+
+  .location-dropdown,
+  .datetime-picker {
+    width: 100%;
+  }
+}
+
+/* Booking Section Styles */
+
 /* next test - side-btns*/
 .side-buttons {
   position: fixed;
@@ -670,8 +813,6 @@ body {
 .car-feat-ico img {
   padding-right: 8px;
   margin-right: 8px;
-  /* width: 24px;
-  height: 24px; */
 }
 
 .car-bk {
@@ -738,7 +879,7 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   align-items: center;
-  padding: 5rem 8rem;
+  padding: 1rem 2rem;
 }
 
 .susInputs h2 {
@@ -747,8 +888,9 @@ body {
 
 .inputs {
   display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 1em;
+  margin-bottom: 1em;
+  flex-wrap: wrap; /* Allows input fields to wrap when needed */
 }
 
 .appDetails input,
@@ -758,8 +900,22 @@ body {
   border: #f8f8f8 0px solid;
   border-radius: 5px;
 }
+
+.inputs input {
+  flex: 1 1 45%; /* Allows inputs to take up equal width, but wrap on smaller screens */
+  min-width: 150px; /* Ensures inputs don't get too small */
+}
+
 .appDetails input {
   width: 18em;
+}
+
+.appDetails input {
+  background-color: #f8f8f8;
+  height: 3em;
+  border: #f8f8f8 0px solid;
+  border-radius: 5px;
+  width: 100%;
 }
 
 .susApps {
@@ -785,13 +941,15 @@ body {
   width: 120px;
   margin-right: 10px;
 }
+
 .subscribe-btn {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
   text-align: center;
-  width: 36em;
+  width: 100%;
+  max-width: 36em;
   height: 2.5em;
   border-radius: 5px;
 }
@@ -805,10 +963,17 @@ body {
   margin-top: 2em;
   height: 2.5em;
   border-radius: 5px;
+  width: 100%;
 }
+
 .susInputs input {
   width: 20em;
 }
+
+.susInputs input {
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .susCont {
     grid-template-columns: 1fr;
@@ -818,16 +983,23 @@ body {
 
   .susApps {
     flex-direction: column;
+    padding: 20px;
   }
 
   .appDetails {
     margin-left: 0;
     max-width: 100%;
+    padding: 0;
   }
 
   .inputs {
     flex-direction: column;
     gap: 20px;
+  }
+
+  .appstoreBtns img {
+    width: 100px;
+    margin: 5px 0;
   }
 }
 
@@ -1035,31 +1207,32 @@ body {
 /* FAQ */
 
 .faq h2 {
-  padding-top: 56px;
-  padding-bottom: 69px;
+  padding-top: 1em;
+  padding-bottom: 2em;
 }
 
 .faq-card {
-  width: 1144px;
-  margin-left: 150px;
-  margin-right: 150px;
+  width: 100%;
+  margin-left: 2em;
+  margin-right: 2em;
 }
 
 .faq-question {
   background-color: #007bff;
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 1em 2em;
   cursor: pointer;
   font-size: 16px;
-  margin-left: 10px;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .faq-answer {
-  padding: 10px;
+  padding: 1em;
   border: 1px solid #007bff;
-  margin-top: 5px;
-  margin-left: 30px;
+  margin-top: 0.5em;
+  margin-left: 3em;
 }
 
 .faq-card {
@@ -1103,7 +1276,7 @@ body {
 }
 
 .panel p {
-  width: 800px;
+  width: 95%;
   height: 25px;
   gap: 0px;
   opacity: 0.5;
@@ -1119,12 +1292,14 @@ body {
   font-size: 13px;
   color: #fff;
   float: right;
-  margin-left: 5px;
+  /* margin-left: 5px; */
+  margin-right: 5px;
 }
 
 .active:after {
   content: "\2796"; /*Unicode character for "minus" sign (-) */
   /*content: "\00D7";  Unicode character for "multiplication sign (×)" */
+  margin-right: 5px;
 }
 
 /* Responsive Design */
