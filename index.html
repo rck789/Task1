@@ -56,8 +56,8 @@
             <li class="nav-links"><a href="#">Personal</a></li>
             <li class="nav-links"><a href="#">Locations</a></li>
             <li class="nav-links"><a href="#">Contact Us</a></li>
-            <li class="nav-links"><a href="#" class="btn noti">Noti</a></li>
-            <li class="nav-links"><a href="#" class="btn">John Doe</a></li>
+            <li class="nav-links"><a href="#" class="noti"><img src="./images/noti-ico-2.svg" alt=""></a></li>
+            <li class="nav-links"><a href="#" class="btn jhon"><img src="./images/jhon-ico.svg" alt="">John Doe</a></li>
           </ul>
         </nav>
       </div>
@@ -96,7 +96,7 @@
       <div class="booking-section">
         <div class="booking-form">
           <ul class="booking-tabs">
-            <li class="tab active">Same as Pick-Up</li>
+            <li class="tab active1">Same as Pick-Up</li>
             <li class="tab">Different Drop-Off</li>
             <li class="tab">
               <select class="vehicle-type-dropdown">
@@ -108,9 +108,6 @@
               </select>
             </li>
           </ul>
-          <div class="search-icon">
-            <button class="search-btn"><i class="fa fa-search"></i></button>
-          </div>
         </div>
 
         <div class="quick-book-container">
@@ -140,6 +137,12 @@
               placeholder="Drop-Off Date and Time"
             />
           </div>
+
+          <div class="search-icon">
+            <button class="search-btn"><img src="./images/-ico.svg" class="fa fa-search"></img></button>
+          </div>
+
+          <div class="brdr"><p></p></div>
 
           <div class="quick-book-button">
             <button class="quick-book">Quick Book</button>
@@ -172,7 +175,10 @@
       <div class="mobileBook">
         <div class="booking-buttons">
           <button class="quick-book">Book a Car</button>
-          <button class="quick-book" onclick="toggleBookingContent()">
+          <button
+            class="quick-book quickbookbtn"
+            onclick="toggleBookingContent()"
+          >
             Quick Book
           </button>
         </div>
@@ -203,7 +209,7 @@
             />
           </div>
 
-          <button class="search-btn">Search</button>
+          <button class="search-btn quick-book srch">Search</button>
         </div>
         <script>
           function toggleBookingContent() {
@@ -243,9 +249,10 @@
 
         <div class="flex-container">
           <div class="car-container">
-            <img src="./images/car-eclipse.jpg" alt="Mitsubishi Eclipse"
-            class="carimage" width: 360px; height: 290px; top: 894px; left:
-            64px; gap: 0px; opacity: 0px; >
+            <div class="car-image">
+              <img src="./images/car-eclipse.jpg" alt="Mitsubishi Eclipse"
+              class="carimage" gap: 0px; opacity: 0px; >
+            </div>
 
             <div class="car-deets">
               <h3>Mitsubishi Eclipse</h3>
@@ -254,6 +261,7 @@
                 mobility with signature Mitsubishi styling, technology and
                 driving confidence.
               </p>
+
               <div class="car-feat">
                 <ul>
                   <li class="car-feat-ico ico1">
@@ -289,9 +297,8 @@
 
           <div class="car-container">
             <div class="car-image">
-              <img src="./images/car-jac.jpg" alt="Jac J7" class="carimage"
-              width: 360px; height: 290px; top: 894px; left: 840px; gap: 0px;
-              opacity: 0px; >
+              <img src="./images/car-jac.jpg" alt="Jac J7" class="carimage" gap:
+              0px; opacity: 0px; >
             </div>
 
             <div class="car-deets">
@@ -306,14 +313,20 @@
                     <img src="./images/vec-seat.svg" alt="" />
                     <p>6 People</p>
                   </li>
+                </ul>
+                <ul>
                   <li class="car-feat-ico ico2">
                     <img src="./images/vec-gear.svg" alt="" />
                     <p>Automatic</p>
                   </li>
+                </ul>
+                <ul>
                   <li class="car-feat-ico ico3">
                     <img src="./images/vec-door.svg" alt="" />
                     <p>5 Doors</p>
                   </li>
+                </ul>
+                <ul>
                   <li class="car-feat-ico ico4">
                     <img src="./images/vec-ac.svg" alt="" />
                     <p>AC</p>
@@ -355,7 +368,7 @@
           <button type="subscribe" class="subscribe-btn">Subscribe</button>
         </div>
         <div class="susApps">
-          <img src="./images/susPhone.png" alt="Phone with app" />
+          <img src="./images/susPhone.png" alt="Phone with app" class="appImage"/>
           <div class="appDetails">
             <p>
               Enter your number and receive a direct link to download the app
@@ -520,7 +533,6 @@
           </p>
         </div>
       </div>
-      
     </main>
 
     <footer class="footer">
