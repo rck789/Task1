@@ -289,7 +289,7 @@ header {
 
 /* Booking Section */
 .booking-section {
-  background: url("./images/booking-section.svg") no-repeat center center;
+  background: url("./booking-section.svg") no-repeat center center;
   background-size: cover;
   padding: 20px;
   color: white;
