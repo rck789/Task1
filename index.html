@@ -73,24 +73,6 @@
 
     <div class="overlay" id="overlay"></div>
 
-    <script>
-      const mobileMenu = document.getElementById("mobile-menu");
-      const navMenu = document.getElementById("nav-menu");
-      const overlay = document.getElementById("overlay");
-
-      mobileMenu.addEventListener("click", () => {
-        navMenu.classList.toggle("open");
-        mobileMenu.classList.toggle("menu-open");
-        overlay.classList.toggle("show");
-      });
-
-      // Close the menu and overlay when the overlay is clicked
-      overlay.addEventListener("click", () => {
-        navMenu.classList.remove("open");
-        overlay.classList.remove("show");
-      });
-    </script>
-
     <main>
       <!-- TESTT -->
       <div class="booking-section">
@@ -147,20 +129,7 @@
           <div class="quick-book-button">
             <button class="quick-book">Quick Book</button>
           </div>
-          <script>
-            document
-              .querySelector(".quick-book")
-              .addEventListener("click", function () {
-                const quickBookContainer = document.querySelector(
-                  ".quick-book-container"
-                );
-                quickBookContainer.style.display =
-                  quickBookContainer.style.display === "none" ||
-                  quickBookContainer.style.display === ""
-                    ? "flex"
-                    : "none";
-              });
-          </script>
+          
         </div>
 
         <div class="app-download">
@@ -211,16 +180,7 @@
 
           <button class="search-btn quick-book srch">Search</button>
         </div>
-        <script>
-          function toggleBookingContent() {
-            const content = document.querySelector(".quick-book-content");
-            if (content.style.display === "block") {
-              content.style.display = "none";
-            } else {
-              content.style.display = "block";
-            }
-          }
-        </script>
+
       </div>
       <!-- TESTT -->
 
@@ -251,7 +211,7 @@
           <div class="car-container">
             <div class="car-image">
               <img src="./images/car-eclipse.jpg" alt="Mitsubishi Eclipse"
-              class="carimage" gap: 0px; opacity: 0px; >
+              class="carimage" >
             </div>
 
             <div class="car-deets">
@@ -297,8 +257,7 @@
 
           <div class="car-container">
             <div class="car-image">
-              <img src="./images/car-jac.jpg" alt="Jac J7" class="carimage" gap:
-              0px; opacity: 0px; >
+              <img src="./images/car-jac.jpg" alt="Jac J7" class="carimage">
             </div>
 
             <div class="car-deets">
@@ -632,6 +591,49 @@
       <div class="c_right">© 2018 Car rental LLC - All Rights Reserved.</div>
     </footer>
 
+    <script>
+      function toggleBookingContent() {
+        const content = document.querySelector(".quick-book-content");
+        if (window.getComputedStyle(content).display === "block") {
+          content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+      }
+    </script>
+
+    <script>
+      document
+        .querySelector(".quick-book")
+        .addEventListener("click", function () {
+          const quickBookContainer = document.querySelector(
+            ".quick-book-container"
+          );
+          quickBookContainer.style.display =
+            quickBookContainer.style.display === "none" ||
+            quickBookContainer.style.display === ""
+              ? "flex"
+              : "none";
+        });
+    </script>
+
+    <script>
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navMenu = document.getElementById("nav-menu");
+      const overlay = document.getElementById("overlay");
+
+      mobileMenu.addEventListener("click", () => {
+        navMenu.classList.toggle("open");
+        mobileMenu.classList.toggle("menu-open");
+        overlay.classList.toggle("show");
+      });
+
+      // Close the menu and overlay when the overlay is clicked
+      overlay.addEventListener("click", () => {
+        navMenu.classList.remove("open");
+        overlay.classList.remove("show");
+      });
+    </script>
     <script src="./js/faq.js"></script>
     <script src="main.js"></script>
   </body>

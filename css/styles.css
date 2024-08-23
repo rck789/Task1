@@ -113,8 +113,6 @@ header {
   align-items: center;
   justify-content: space-evenly;
   gap: .5em;
-  
-  
 }
 /* Scrolling Message */
 .navmsg {
@@ -284,6 +282,21 @@ header {
   .overlay.show {
     display: block;
   }
+  .nav-menu .btn {
+    background-color: black;
+    color: white;
+    padding: 7px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+  .nav-menu .jhon {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: .5em;
+    width: 75%;
+    max-width: 1em;
+    }
 }
 /* HEADER */
 
@@ -339,6 +352,8 @@ header {
   padding: 1em 2em;
   border-radius: 15px;
   border: none;
+
+  /* background-color: #009046; */
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
   cursor: pointer;
@@ -347,6 +362,10 @@ header {
 .vehicle-type-dropdown:hover {
   border-bottom: #fff 0px solid;
   border-width: 0;
+}
+
+.vehicle-type-dropdown option  {
+  color: #000000;
 }
 
 .search-icon {
@@ -1599,18 +1618,26 @@ header {
   }
 
   .m_content1 {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
   }
 
   .m_content2 {
     margin-top: 20px;
   }
 
+  .m_content2 p{
+    align-items: center;    
+  }
+
   .m_content2 ul {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
   }
 
   .c_right {
